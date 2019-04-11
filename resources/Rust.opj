@@ -6944,7 +6944,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "dQnhRUfe7lIh+7JhsTWAFkBFGZ+uaJLnVFnwBKIfLtI=",
+            "MSILHash": "3Hb2wI371ob2C39yx64OrrEUjJKfOBZCqELiESUsxkQ=",
             "BaseHookName": "AddGameTags [patch]",
             "HookCategory": "_Patches"
           }
