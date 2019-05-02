@@ -1,6 +1,6 @@
 {
   "Name": "Rust",
-  "TargetDirectory": "D:\\Servers\\Rust\\RustDedicated_Data\\Managed",
+  "TargetDirectory": "D:\\Servers\\Rust-staging\\RustDedicated_Data\\Managed",
   "Manifests": [
     {
       "AssemblyName": "Assembly-CSharp.dll",
@@ -730,7 +730,7 @@
                 "Network.Connection"
               ]
             },
-            "MSILHash": "CLVm3l9dDmKTKjBg5oCOgoQ7L6wVil2vnkgJqB6OdwY=",
+            "MSILHash": "2t/J26dIeMSaQxZFzhVh2PCar5XjBL+zw7Qt68LH7Qc=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -2245,7 +2245,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "3Hb2wI371ob2C39yx64OrrEUjJKfOBZCqELiESUsxkQ=",
+            "MSILHash": "U4e8rfIXzHnWxRnW8mTp3IXv4UL+jc8SJIx0kNDaVmU=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -2649,7 +2649,7 @@
                 "Network.Message"
               ]
             },
-            "MSILHash": "IoH41udXxx8MM/4Ax+9sgERAeLWcE9Wj0JgAw550fqc=",
+            "MSILHash": "HWYanqpQTLCBnF2ejygrxciuRAvHX/qBEtXb20brd04=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -2676,7 +2676,7 @@
                 "System.Boolean"
               ]
             },
-            "MSILHash": "tOtlb53xTDaMxUl+HBde0Ursomf6O7L4d9u2UdFgIRU=",
+            "MSILHash": "CfrnPiioH3iVea1CijtHAedIVb+CcNPHbmsJSyjrSLU=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -2727,7 +2727,7 @@
                 "System.Boolean"
               ]
             },
-            "MSILHash": "tOtlb53xTDaMxUl+HBde0Ursomf6O7L4d9u2UdFgIRU=",
+            "MSILHash": "CfrnPiioH3iVea1CijtHAedIVb+CcNPHbmsJSyjrSLU=",
             "BaseHookName": "OnNewSave",
             "HookCategory": "Server"
           }
