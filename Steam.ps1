@@ -97,7 +97,7 @@ function Get-Downloader {
         # Download and extract DepotDownloader
         Write-Host "Downloading version $version of DepotDownloader"
         try {
-            Invoke-WebRequest $json.assets[0].browser_download_url -Out "$tools_dir\$release_zip"
+            Invoke-WebRequest $json.assets[0].browser_download_url -OutFile "$tools_dir\$release_zip"
         } catch {
             Write-Host "Could not download DepotDownloader from GitHub"
             Write-Host $_.Exception.Message
@@ -205,7 +205,7 @@ function Get-Deobfuscators {
             # Download and extract de4dot
             Write-Host "Downloading latest version of de4dot" # TODO: Get and show version
             try {
-                Invoke-WebRequest "https://ci.appveyor.com/api/projects/0xd4d/de4dot/artifacts/Release%2Fde4dot-net35.zip" -Out "$de4dot_dir\de4dot.zip"
+                Invoke-WebRequest "https://ci.appveyor.com/api/projects/0xd4d/de4dot/artifacts/Release%2Fde4dot-net35.zip" -OutFile "$de4dot_dir\de4dot.zip"
             } catch {
                 Write-Host "Could not download de4dot from AppVeyor"
                 Write-Host $_.Exception.Message
@@ -263,7 +263,7 @@ function Get-Patcher {
         Write-Host "Downloading latest build of uMod Patcher"
         $patcher_url = "https://github.com/theumod/umod.patcher/releases/download/latest/uModPatcher.exe"
         try {
-            Invoke-WebRequest $patcher_url -Out "$patcher_exe"
+            Invoke-WebRequest $patcher_url -OutFile "$patcher_exe"
         } catch {
             Write-Host "Could not download uModPatcher.exe from GitHub"
             Write-Host $_.Exception.Message
