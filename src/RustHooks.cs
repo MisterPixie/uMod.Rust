@@ -343,7 +343,7 @@ namespace uMod.Rust
                 return;
             }
 
-            ParseCommand(command.TrimStart('/'), out string cmd, out string[] args);
+            universal.DefaultCommandHandler.ParseCommand(command.TrimStart('/'), out string cmd, out string[] args);
             if (cmd == null)
             {
                 return;
