@@ -22,7 +22,10 @@ namespace uMod.Rust
         private readonly RustConsolePlayer consolePlayer;
 
         // Command handler
-        private readonly CommandHandler commandHandler;
+        internal readonly CommandHandler commandHandler;
+
+        // Default universal commands
+        internal readonly Commands defaultCommands;
 
         // All registered commands
         internal IDictionary<string, RegisteredCommand> registeredCommands;
@@ -82,6 +85,7 @@ namespace uMod.Rust
             registeredCommands = new Dictionary<string, RegisteredCommand>();
             commandHandler = new CommandHandler(CommandCallback, registeredCommands.ContainsKey);
             consolePlayer = new RustConsolePlayer();
+            defaultCommands = new Commands();
         }
 
         private bool CommandCallback(IPlayer caller, string cmd, string[] args)

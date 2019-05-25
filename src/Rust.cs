@@ -38,7 +38,6 @@ namespace uMod.Rust
         // Libraries
         internal readonly Lang lang = Interface.uMod.GetLibrary<Lang>();
         internal readonly Permission permission = Interface.uMod.GetLibrary<Permission>();
-        internal readonly Universal universal = Interface.uMod.GetLibrary<Universal>();
 
         internal bool serverInitialized;
 
@@ -55,7 +54,9 @@ namespace uMod.Rust
             // Configure remote error logging
             RemoteLogger.SetTag("game", Title.ToLower());
             RemoteLogger.SetTag("game version", Server.Version);
-            universal.DefaultCommandHandler.Initialize(this, VersionCommand);
+
+            // Setup universal commands
+            Universal.CommandSystem.defaultCommands.Initialize(this, VersionCommand);
             
             // Register messages for localization
             foreach (KeyValuePair<string, Dictionary<string, string>> language in Localization.languages)
@@ -177,7 +178,7 @@ namespace uMod.Rust
             }
             else
             {
-                universal.DefaultCommandHandler.VersionCommand(player, command, args);
+                Universal.CommandSystem.defaultCommands.VersionCommand(player, command, args);
             }
         }
 
