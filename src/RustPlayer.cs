@@ -82,12 +82,12 @@ namespace uMod.Rust
         public int Ping => Network.Net.sv.GetAveragePing(player.net.connection);
 
         /// <summary>
-        /// Returns if the player is a server admin
+        /// Gets if the player is a server admin
         /// </summary>
         public bool IsAdmin => ServerUsers.Is(steamId, ServerUsers.UserGroup.Owner);
 
         /// <summary>
-        /// Returns if the player is a server moderator
+        /// Gets if the player is a server moderator
         /// </summary>
         public bool IsModerator => ServerUsers.Is(steamId, ServerUsers.UserGroup.Moderator);
 
@@ -97,17 +97,27 @@ namespace uMod.Rust
         public bool IsBanned => ServerUsers.Is(steamId, ServerUsers.UserGroup.Banned);
 
         /// <summary>
-        /// Returns if the player is connected
+        /// Gets if the player is connected
         /// </summary>
         public bool IsConnected => BasePlayer.activePlayerList.Contains(player);
 
         /// <summary>
-        /// Returns if the player is sleeping
+        /// Gets if the player is alive
+        /// </summary>
+        public bool IsAlive => player.IsAlive();
+
+        /// <summary>
+        /// Gets if the player is dead
+        /// </summary>
+        public bool IsDead => player.IsDead();
+
+        /// <summary>
+        /// Gets if the player is sleeping
         /// </summary>
         public bool IsSleeping => BasePlayer.FindSleeping(steamId) != null;
 
         /// <summary>
-        /// Returns if the player is the server
+        /// Gets if the player is the server
         /// </summary>
         public bool IsServer => false;
 
@@ -481,14 +491,14 @@ namespace uMod.Rust
         #region Operator Overloads
 
         /// <summary>
-        /// Returns if player's unique ID is equal to another player's unique ID
+        /// Gets if player's unique ID is equal to another player's unique ID
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
         public bool Equals(IPlayer other) => Id == other?.Id;
 
         /// <summary>
-        /// Returns if player's object is equal to another player's object
+        /// Gets if player's object is equal to another player's object
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>

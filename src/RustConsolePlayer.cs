@@ -52,12 +52,12 @@ namespace uMod.Rust
         public int Ping => 0;
 
         /// <summary>
-        /// Returns if the player is a server admin
+        /// Gets if the player is a server admin
         /// </summary>
         public bool IsAdmin => true;
 
         /// <summary>
-        /// Returns if the player is a server moderator
+        /// Gets if the player is a server moderator
         /// </summary>
         public bool IsModerator => true;
 
@@ -67,17 +67,27 @@ namespace uMod.Rust
         public bool IsBanned => false;
 
         /// <summary>
-        /// Returns if the player is connected
+        /// Gets if the player is connected
         /// </summary>
         public bool IsConnected => true;
 
         /// <summary>
-        /// Returns if the player is sleeping
+        /// Gets if the player is alive
+        /// </summary>
+        public bool IsAlive => true;
+
+        /// <summary>
+        /// Gets if the player is dead
+        /// </summary>
+        public bool IsDead => false;
+
+        /// <summary>
+        /// Gets if the player is sleeping
         /// </summary>
         public bool IsSleeping => false;
 
         /// <summary>
-        /// Returns if the player is the server
+        /// Gets if the player is the server
         /// </summary>
         public bool IsServer => true;
 
