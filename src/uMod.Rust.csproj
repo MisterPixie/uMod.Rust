@@ -12,7 +12,6 @@
     <PackageProjectUrl>https://umod.org</PackageProjectUrl>
     <RepositoryUrl>https://github.com/theumod/uMod.Rust</RepositoryUrl>
     <PackageTags>gaming modding plugins unity unity3d</PackageTags>
-    <ThisAssemblyNamespace>$(AssemblyName)</ThisAssemblyNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <TargetFramework>net46</TargetFramework>
     <ManagedDir>RustDedicated_Data\Managed</ManagedDir>
@@ -27,9 +26,11 @@
     <PackageReference Include="Oxide.References" Version="2.0.*">
       <PrivateAssets>contentfiles;analyzers;build</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="uMod" Version="3.0.3956-develop" />
-    <!--<PackageReference Include="uMod.MySql" Version="3.0.*" />
-    <PackageReference Include="uMod.SQLite" Version="3.0.*" />-->
+    <PackageReference Include="uMod" Version="3.0.0-develop">
+      <NoWarn>NU1605</NoWarn>
+    </PackageReference>
+    <!--<PackageReference Include="uMod.MySql" Version="3.0.0-develop" />
+    <PackageReference Include="uMod.SQLite" Version="3.0.0-develop" />-->
     <PackageReference Include="uMod.Unity" Version="3.0.3765-develop" />
     <Reference Include="Assembly-CSharp">
       <HintPath>Dependencies\Patched\$(SteamBranch)\$(ManagedDir)\Assembly-CSharp.dll</HintPath>

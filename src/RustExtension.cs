@@ -48,7 +48,10 @@ namespace uMod.Rust
         // Commands that a plugin can't override
         internal static IEnumerable<string> RestrictedCommands => new[]
         {
-            "ownerid", "moderatorid", "removeowner", "removemoderator"
+            "ownerid",
+            "moderatorid",
+            "removeowner",
+            "removemoderator"
         };
 
         /// <summary>
@@ -56,11 +59,35 @@ namespace uMod.Rust
         /// </summary>
         public override string[] DefaultReferences => new[]
         {
-            "ApexAI", "ApexShared", "Facepunch.Network", "Facepunch.Steamworks", "Facepunch.System", "Facepunch.UnityEngine", "NewAssembly", "Rust.Data",
-            "Rust.Global", "Rust.Workshop", "Rust.World", "System.Drawing", "UnityEngine.AIModule", "UnityEngine.AssetBundleModule", "UnityEngine.CoreModule",
-            "UnityEngine.GridModule", "UnityEngine.ImageConversionModule", "UnityEngine.Networking", "UnityEngine.PhysicsModule", "UnityEngine.TerrainModule",
-            "UnityEngine.TerrainPhysicsModule", "UnityEngine.UI", "UnityEngine.UIModule", "UnityEngine.UIElementsModule", "UnityEngine.UnityWebRequestAudioModule",
-            "UnityEngine.UnityWebRequestModule", "UnityEngine.UnityWebRequestTextureModule", "UnityEngine.UnityWebRequestWWWModule", "UnityEngine.VehiclesModule",
+            "ApexAI",
+            "ApexShared",
+            "Facepunch.Network",
+            "Facepunch.Steamworks",
+            "Facepunch.System",
+            "Facepunch.UnityEngine",
+            "NewAssembly",
+            "Rust.Data",
+            "Rust.Global",
+            "Rust.Workshop",
+            "Rust.World",
+            "System.Drawing",
+            "UnityEngine.AIModule",
+            "UnityEngine.AssetBundleModule",
+            "UnityEngine.CoreModule",
+            "UnityEngine.GridModule",
+            "UnityEngine.ImageConversionModule",
+            "UnityEngine.Networking",
+            "UnityEngine.PhysicsModule",
+            "UnityEngine.TerrainModule",
+            "UnityEngine.TerrainPhysicsModule",
+            "UnityEngine.UI",
+            "UnityEngine.UIModule",
+            "UnityEngine.UIElementsModule",
+            "UnityEngine.UnityWebRequestAudioModule",
+            "UnityEngine.UnityWebRequestModule",
+            "UnityEngine.UnityWebRequestTextureModule",
+            "UnityEngine.UnityWebRequestWWWModule",
+            "UnityEngine.VehiclesModule",
             "UnityEngine.WebModule"
         };
 
@@ -69,8 +96,20 @@ namespace uMod.Rust
         /// </summary>
         public override string[] WhitelistAssemblies => new[]
         {
-            "Assembly-CSharp", "Assembly-CSharp-firstpass", "DestMath", "Facepunch.Network", "Facepunch.System", "Facepunch.UnityEngine", "mscorlib",
-            "uMod", "RustBuild", "Rust.Data", "Rust.Global", "System", "System.Core", "UnityEngine"
+            "Assembly-CSharp",
+            "Assembly-CSharp-firstpass",
+            "DestMath",
+            "Facepunch.Network",
+            "Facepunch.System",
+            "Facepunch.UnityEngine",
+            "mscorlib",
+            "uMod",
+            "RustBuild",
+            "Rust.Data",
+            "Rust.Global",
+            "System",
+            "System.Core",
+            "UnityEngine"
         };
 
         /// <summary>
@@ -78,8 +117,18 @@ namespace uMod.Rust
         /// </summary>
         public override string[] WhitelistNamespaces => new[]
         {
-            "ConVar", "Dest", "Facepunch", "Network", "ProtoBuf", "PVT", "Rust", "Steamworks", "System.Collections", "System.Security.Cryptography",
-            "System.Text", "UnityEngine"
+            "ConVar",
+            "Dest",
+            "Facepunch",
+            "Network",
+            "ProtoBuf",
+            "PVT",
+            "Rust",
+            "Steamworks",
+            "System.Collections",
+            "System.Security.Cryptography",
+            "System.Text",
+            "UnityEngine"
         };
 
         /// <summary>

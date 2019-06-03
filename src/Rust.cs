@@ -1,10 +1,6 @@
 using Facepunch;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using uMod.Libraries;
 using uMod.Libraries.Universal;
 using uMod.Logging;
@@ -57,7 +53,7 @@ namespace uMod.Rust
 
             // Setup universal commands
             Universal.CommandSystem.defaultCommands.Initialize(this, VersionCommand);
-            
+
             // Register messages for localization
             foreach (KeyValuePair<string, Dictionary<string, string>> language in Localization.languages)
             {
@@ -78,8 +74,7 @@ namespace uMod.Rust
 
                 permission.RegisterValidate(s =>
                 {
-                    ulong temp;
-                    if (!ulong.TryParse(s, out temp))
+                    if (!ulong.TryParse(s, out ulong temp))
                     {
                         return false;
                     }
@@ -118,13 +113,13 @@ namespace uMod.Rust
                 serverInitialized = true;
                 Interface.CallHook("OnServerInitialized", serverInitialized);
 
-                Interface.uMod.LogInfo($"uMod version {uMod.Version} running on {Universal.GameName} server version {Server.Version}");
+                Interface.uMod.LogInfo($"uMod version {uMod.Version} running on {Universal.GameName} server version {Server.Version}"); // TODO: Localization
                 Analytics.Collect();
 
                 if (!Interface.uMod.Config.Options.Modded)
                 {
                     Interface.uMod.LogWarning("The server is currently listed under Community. Please be aware that Facepunch only allows admin tools" +
-                      "(that do not affect gameplay or make the server appear modded) under the Community section");
+                      "(that do not affect gameplay or make the server appear modded) under the Community section"); // TODO: Localization
                 }
             }
         }
@@ -174,7 +169,7 @@ namespace uMod.Rust
             {
                 player.Reply($"Protocol: {Server.Protocol}\nBuild Date: {BuildInfo.Current.BuildDate}\n" +
                 $"Unity Version: {UnityEngine.Application.unityVersion}\nChangeset: {BuildInfo.Current.Scm.ChangeId}\n" +
-                $"Branch: {BuildInfo.Current.Scm.Branch}\nuMod.Rust Version: {RustExtension.AssemblyVersion}");
+                $"Branch: {BuildInfo.Current.Scm.Branch}\nuMod.Rust Version: {RustExtension.AssemblyVersion}"); // TODO: Localization
             }
             else
             {
@@ -183,7 +178,7 @@ namespace uMod.Rust
         }
 
         #endregion Version Command
-        
+
         #endregion Commands
     }
 }
