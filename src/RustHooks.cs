@@ -357,8 +357,8 @@ namespace uMod.Rust
             }
 
             // Is the command blocked?
-            object commandUniversal = Interface.CallHook("OnPlayerChat", player, cmd, args);
-            object commandDeprecated = Interface.CallDeprecatedHook("OnUserChat", "OnPlayerChat", new DateTime(2018, 07, 01), player, cmd, args);
+            object commandUniversal = Interface.CallHook("OnPlayerCommand", player, cmd, args);
+            object commandDeprecated = Interface.CallDeprecatedHook("OnUserCommand", "OnPlayerCommand", new DateTime(2018, 07, 01), player, cmd, args);
             if (commandUniversal != null || commandDeprecated != null)
             {
                 return;
