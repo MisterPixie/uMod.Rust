@@ -15,7 +15,7 @@ namespace uMod.Rust
     /// </summary>
     public class RustServer : IServer
     {
-        #region Information
+        #region Server Information
 
         /// <summary>
         /// Gets/sets the public-facing name of the server
@@ -135,9 +135,28 @@ namespace uMod.Rust
         /// </summary>
         public SaveInfo SaveInfo { get; } = SaveInfo.Create(World.SaveFileName);
 
-        #endregion Information
+        #endregion Server Information
 
-        #region Administration
+        #region Server Administration
+
+        /// <summary>
+        /// Saves the server and any related information
+        /// </summary>
+        public void Save()
+        {
+            ConVar.Server.save(null);
+            File.WriteAllText(Path.Combine(ConVar.Server.GetServerFolder("cfg"), "serverauto.cfg"), ConsoleSystem.SaveToConfigString(true));
+            ServerUsers.Save();
+        }
+
+        /// <summary>
+        /// Shuts down the server, with optional saving and delay
+        /// </summary>
+        public void Shutdown(bool save = true, int delay = 0) => ConVar.Global.quit(null);
+
+        #endregion Server Administration
+
+        #region Player Administration
 
         /// <summary>
         /// Bans the player for the specified reason and duration
@@ -169,16 +188,6 @@ namespace uMod.Rust
         public bool IsBanned(string id) => ServerUsers.Is(ulong.Parse(id), ServerUsers.UserGroup.Banned);
 
         /// <summary>
-        /// Saves the server and any related information
-        /// </summary>
-        public void Save()
-        {
-            ConVar.Server.save(null);
-            File.WriteAllText(Path.Combine(ConVar.Server.GetServerFolder("cfg"), "serverauto.cfg"), ConsoleSystem.SaveToConfigString(true));
-            ServerUsers.Save();
-        }
-
-        /// <summary>
         /// Unbans the player
         /// </summary>
         /// <param name="id"></param>
@@ -193,7 +202,7 @@ namespace uMod.Rust
             }
         }
 
-        #endregion Administration
+        #endregion Player Administration
 
         #region Chat and Commands
 
