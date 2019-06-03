@@ -1,0 +1,49 @@
+variables:
+  ASSEMBLY_NAME: uMod.Rust
+  CONFIGURATION: Release
+  GIT_DEPTH: 1
+
+image: mono:latest # always use the latest mono version
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  only:
+    - branches # the build process will only be started by branch commits
+  cache:
+    key: $CI_PIPELINE_ID
+    untracked: true
+    paths:
+      - src/Bundle/
+      - src/bin/
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq apt-transport-https git gnupg libxml2-utils # install dependencies
+    - curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - # import public repository GPG keys for microsoft/powershell
+    - sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
+    - apt-get update -qq && apt-get install -y -qq powershell # install powershell dependency
+    - nuget restore # restore nuget dependencies
+  script:
+    - VERSION=$(xmllint --xpath 'string(//Project/PropertyGroup/Version)' src/$ASSEMBLY_NAME.csproj) # get existing version from project
+    - if [ "$CI_COMMIT_REF_NAME" != "master" ]; then VERSION=$VERSION-$CI_COMMIT_REF_NAME; fi # add branch to version if non-release
+    - msbuild /p:Configuration=$CONFIGURATION /p:PackageVersion=$VERSION # build the project(s)
+
+deploy:
+  stage: deploy
+  except:
+    - merge_requests # do not deploy artifacts for merge requests
+  cache:
+    key: $CI_PIPELINE_ID
+    paths:
+      - src/Bundle/
+      - src/bin/
+  script:
+    - mkdir $ASSEMBLY_NAME && cp -r src/Bundle/$ASSEMBLY_NAME/. $ASSEMBLY_NAME
+    - nuget push src/bin/$CONFIGURATION/*.nupkg $NUGET_KEY -source 'https://www.myget.org/f/umod/api/v2/package' # deploy to nuget
+  artifacts:
+    name: $ASSEMBLY_NAME
+    paths:
+      - $ASSEMBLY_NAME/
+    expire_in: 30 days
